@@ -63,6 +63,14 @@
     _imageView.contentMode = UIViewContentModeScaleAspectFill;
     _imageView.image = _picture;
     [_scrollView addSubview:_imageView];
+    
+    CGPoint offset;
+    if (contentWidth > contentHeight) {
+        offset = CGPointMake((contentWidth - contentHeight)/2, 0);
+    } else {
+        offset = CGPointMake(0, (contentHeight - contentWidth)/2);
+    }
+    [_scrollView setContentOffset:offset];
 }
 
 - (void)didReceiveMemoryWarning {
